@@ -1,0 +1,54 @@
+
+
+    <div class="container mt-5">
+  <h1 class="text-center mb-4">Student Details</h1>
+
+  <div class="mb-3 row">
+    <label for="studentId" class="col-sm-2 col-form-label">Enter ID</label>
+    <div class="col-sm-4">
+      <input type="number" id="studentId" class="form-control" placeholder="Enter Student ID" [(ngModel)]="id">
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-primary" (click)="getbyId()">Search</button>
+    </div>
+  </div>
+
+  <div *ngIf="showTable">
+  <div *ngIf="student; else noData">
+    <table class="table table-bordered table-striped mt-4">
+      <thead class="table-dark text-center">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Department</th>
+          <th>Course</th>
+          <th>Phone No.</th>
+          <th>Address</th>
+          <th>Admission Date</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.age }}</td>
+          <td>{{ student.department }}</td>
+          <td>{{ student.course }}</td>
+          <td>{{ student.phoneNo }}</td>
+          <td>{{ student.address }}</td>
+          <td>{{ student.dateOfAdmission }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <ng-template #noData>
+  <p>No data found</p>
+</ng-template>
+</div>
+
+
+
